@@ -1,0 +1,101 @@
+<developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <introduction>
+    <para>
+      Various routines associated with date and time functions.
+    </para>
+  </introduction>
+  <section>
+    <title>Overview</title>
+    <content>
+      <para>
+        Dates are represented internally by a <codeInline>time_t</codeInline> data type that
+        indicates the Universal Coordinated Time (UTC, not UCT) &#8212; the time in seconds since
+        <newTerm>epoch</newTerm>, usually midnight, January 1, 1970 Greenwich Mean Time.
+        When a date is presented to a user it gets converted into a local time that reflects the
+        timezone and daylight saving convention on the user's computer.
+        When a local time is converted to UTC, the timezone and daylight saving are taken into account.
+      </para>
+    </content>
+    <sections>
+      <section>
+        <title>Introduction</title>
+        <content>
+          <para>
+            This library provides replacements and extensions of Excel's built-in date and time
+            functions. It uses the functions standard C runtime library declared in
+            <externalLink>
+              <linkText>&lt;ctime&gt;</linkText>
+              <linkUri>http://msdn.microsoft.com/en-us/library/kb6xk0y1(v=VS.100).aspx</linkUri>
+            </externalLink>. For direct access to these functions see
+            <externalLink>
+              <linkText>xlltime</linkText>
+              <linkUri>http://xlltime.codeplex.com</linkUri>
+            </externalLink>.
+          </para>
+          <para>
+            Various calendars are provided under the <codeInline>CALENDAR_*</codeInline> enumeration. 
+            (Currently only the New York Stock Exchange calendar.) The format of the data are
+            <codeInline>YYYYMMDD</codeInline> dates for each holiday. Users can supply their own array of such dates instead
+            of using the built-in calendars.
+          </para>
+          <para>
+            The <codeInline>Datetime</codeInline> category contains functions that can be used for
+            various calendrical functions needed in the financial world: rolling dates to
+            appropriate business days, computing day count fractions, and calculating IMM dates.
+            When converting between dates and years, it is assumed every year has 365.25 days.
+          </para>
+          <para>
+            Several of the functions require <codeInline>Datetime Enumerations</codeInline> such as
+            <codeInline>DATE.DCF</codeInline> which take the day count basis from the
+            <codeInline>DCB_*</codeInline> enumeration.
+          </para>
+          <para>
+            The <codeInline>Exchange</codeInline> category collects functions related to
+            conventions used on exchanges.
+          </para>
+        </content>
+      </section>
+      <section>
+        <title>Daylight Saving Time</title>
+        <content>
+          <para>
+            Excel does not know about DST rules, but this library does.
+            In certain locations, the hours, minutes and seconds on a wall 
+            clock go from 1:59:59 to 3:00:00 over 
+            the the course of one second somtime in the Spring
+            and from 1:59:59 to 1:00:00 over the course of one second
+            sometime in the Fall.
+            This can cause unexpected behavior.
+          </para>
+          <para>
+            In the United States daylight saving begins on the second
+            Sunday of March and ends on the first Sunday of November.
+            (As of 2007 per the Energy Policy Act of 2005.) When the
+            local time is set to an invalid time in the Spring, this
+            library converts it to a valid time by subtracting one hour.
+            In particular, incrementing a time just before 2AM by one
+            minute will cause the time to decrement by 59 minutes.
+          </para>
+          <para>
+            In the Fall the local time repeats the 1AM to 2AM time
+            period. This library is unable to distinguish these
+            two periods. In particular, incrementing a time just
+            before 2AM by one minute will result in a clock time
+            in the 3AM period. Also note that the library considers
+            times in the 1AM to 2AM period to not be daylight
+            saving time.
+          </para>
+        </content>
+      </section>
+    </sections>
+  </section>
+  <relatedTopics>
+    <externalLink>
+      <linkText>National Institute of Standards and Technology (NIST)</linkText>
+      <linkUri>http://www.nist.gov/pml/general/time/index.cfm</linkUri>
+    </externalLink> 
+  </relatedTopics>
+</developerConceptualDocument>

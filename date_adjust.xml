@@ -1,0 +1,75 @@
+<developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <introduction>
+    <para>
+      When a payment date falls on a weekend or holiday a
+      <newTerm>business day convention</newTerm> is used to adjust the date
+      to a valid business day.
+    </para>
+  </introduction>
+  <section>
+    <title>Conventions</title>
+    <content>
+      <para>
+        A <newTerm>business day</newTerm> is a week day (Monday through Friday) that is not a holiday.
+      </para>
+      <table>
+        <tableHeader>
+          <row>
+            <entry>
+              <para>Convention</para>
+            </entry>
+            <entry>
+              <para>Description</para>
+            </entry>
+          </row>
+        </tableHeader>
+        <row>
+          <entry>
+            <para>None</para>
+          </entry>
+          <entry>
+            <para>Advance to the next non-holiday.</para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>Following</para>
+          </entry>
+          <entry>
+            <para>Advanced to the next business day.</para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>Previous</para>
+          </entry>
+          <entry>
+            <para>Roll back to the previous business day.</para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>Modified Following</para>
+          </entry>
+          <entry>
+            <para>Earlier of following and last business day of month.</para>
+          </entry>
+        </row>
+        <row>
+          <entry>
+            <para>Modified Previous</para>
+          </entry>
+          <entry>
+            <para>The later of the previous and first business day of month.</para>
+          </entry>
+        </row>
+      </table>
+    </content>
+  </section>
+  <relatedTopics>
+
+  </relatedTopics>
+</developerConceptualDocument>

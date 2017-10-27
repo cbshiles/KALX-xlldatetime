@@ -1,0 +1,129 @@
+  <developerConceptualDocument
+      xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+      xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        A <newTerm>day count convention</newTerm> determines the amount of interest
+        that accrues over a period of time for a financial instrument. It is used
+        to compute the <newTerm>day count fraction</newTerm> that is multiplied
+        by a coupon or notional for determining cash flow amounts. It is approximately
+        equal to the time in years of the period.
+      </para>
+    </introduction>
+    <section>
+      <title>Conventions</title>
+      <content>
+        <para>
+        The day count fraction of a time period is a quotient having numerator approximately equal to
+        the number of days in the period and denominator approximately equal to
+        the number of days in a year. The following table summarizes the conventions
+        for the period from the date
+        Y1/M1/D1 to Y2/M2/D2.
+      </para>
+        <table>
+          <tableHeader>
+            <row>
+              <entry><para>Convention</para></entry>
+              <entry>
+                <para>Numerator</para>
+              </entry>
+              <entry>
+                <para>Denominator</para>
+              </entry>
+            </row>
+          </tableHeader>
+          <row>
+            <entry>
+              <para>30U/360</para>
+            </entry>
+            <entry>
+              <para>if D2 is 31 and D1 is 30 or 31 change D2 to 30, if D1 equals 31 change D1 to 30.</para>
+            </entry>
+            <entry>
+              <para>360</para>
+            </entry>
+          </row>
+          <row>
+              <entry>
+                <para>30E/360</para>
+              </entry>
+              <entry>
+                <para>if D2 is 31 change D2 to 30, if D1 equals 31 change D1 to 30</para>
+              </entry>
+              <entry>
+                <para>360</para>
+              </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Act/Act (ISDA)</para>
+            </entry>
+            <entry>
+              <para>days in leap year and days not in leap year</para>
+            </entry>
+            <entry>
+              <para>366 and 365 respectively</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Act/360</para>
+            </entry>
+            <entry>
+              <para>days in period.</para>
+            </entry>
+            <entry>
+              <para>360</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Act/365</para>
+            </entry>
+            <entry>
+              <para>days in period</para>
+            </entry>
+            <entry>
+              <para>365</para>
+            </entry>
+          </row>
+        </table>
+        <para>
+          If a period contains dates both in a leap year and not in a leap year, the two fractions are added after
+          calculating the respective quotients for the Act/Act (ISDA) convention.
+        </para>
+        <para>
+          The confirmation document of the transaction typically specifies the day count convention, but there are
+          some general rules. US corporate and agency issues often use 30U/360 while derivative securities
+          governed by ISDA contracts are usually Act/360. Dollar denominated LIBOR swaps have 30/360 for the fixed 
+          leg and Act/360 for the floating leg.
+        </para>
+      </content>
+    </section>
+    <relatedTopics>
+      
+      <externalLink>
+        <linkText>Eclipse Software, Inc.</linkText>
+        <linkUri> http://www.eclipsesoftware.biz/DayCountConventions.html </linkUri>
+      </externalLink>
+     
+      <externalLink>
+        <linkText>The International Capital Market Association (ICMA)</linkText>
+        <linkUri>http://www.icma-group.org/</linkUri>
+      </externalLink>
+      <externalLink>
+        <linkText>International Swaps and Derivatives Association, Inc. (ISDA)</linkText>
+        <linkUri>http://www.isda.org/</linkUri>
+      </externalLink>
+      <externalLink>
+        <linkText>Securities Industry and Financial Management Association (SIFMA)</linkText>
+        <linkUri>http://www.sifma.org/</linkUri>
+      </externalLink>
+      <externalLink>
+        <linkText>SWX Swiss Exchange</linkText>
+        <linkUri>http://www.swx.com/</linkUri>
+      </externalLink>
+     
+    </relatedTopics>
+  </developerConceptualDocument>
